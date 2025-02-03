@@ -1,0 +1,112 @@
+nav {
+  --latime-buton: 150px;
+  --inaltime-buton: 40px;
+  --culoare-deschisa_meniu: rgb(237, 236, 165);
+  --culoare-inchisa_meniu: rgb(49, 108, 196);
+  background-color: var(--culoare-deschisa_meniu);
+  position: relative; /* Makes sure absolute elements stay inside */
+  width: 100%; /* Ensures the nav takes full width */
+  background-color: var(--culoare-deschisa_meniu);
+  padding: 10px 0; /* Adds spacing for the hamburger */
+}
+
+/* Hide checkbox input */
+#ch-menu {
+  display: none;
+}
+
+/* Hamburger Button */
+#hamburger {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 50%; /* Centers vertically */
+  left: 10px; /* Adjust position */
+  transform: translateY(-50%); /* Keeps it centered */
+  z-index: 100;
+}
+
+#hamburger img {
+  width: 30px;
+  height:15px;
+}
+
+/* Menu (hidden by default) */
+ul.meniu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--culoare-deschisa_meniu);
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Show menu when checkbox is checked */
+#ch-menu:checked + .meniu {
+  display: flex;
+  transform: translateX(0);
+}
+
+/* Menu Items */
+ul.meniu li {
+  border-bottom: 1px solid var(--culoare-inchisa_meniu);
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  position: relative;
+}
+
+ul.meniu li:hover {
+  background-color: var(--culoare-inchisa_meniu);
+  color: rgb(0, 0, 0);
+}
+
+/* Submenu */
+ul.meniu ul.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: var(--culoare-deschisa_meniu);
+  min-width: 200px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+ul.meniu li:hover > ul.submenu {
+  display: block;
+}
+
+/* Submenu Items */
+ul.meniu ul.submenu li {
+  padding: 10px;
+  border-bottom: 1px solid var(--culoare-inchisa_meniu);
+  color: black !important;
+}
+
+ul.meniu ul.submenu li:hover {
+  background-color: var(--culoare-inchisa_meniu);
+  color: black !important;
+}
+
+/* Links */
+ul.meniu li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+ul.meniu li a:hover {
+  color: black;
+}
+
+h1.titlu {
+text-align: center;
+}

@@ -1,0 +1,24 @@
+{
+    "cale_baza": "/images/erori",
+    "eroare_default": {
+      "titlu": "Eroare 404",
+      "text": "Pagina pe care o căutați nu există.",
+      "imagine": "/images/erori/default.jpg"
+    },
+    "info_erori": [
+      {
+        "identificator": 404,
+        "status": true,
+        "titlu": "Pagina nu a fost găsită",
+        "text": "Pagina solicitată nu există pe server.",
+        "imagine": "/images/erori/default.jpg"
+      },
+      {
+        "identificator": 500,
+        "status": true,
+        "titlu": "Eroare internă server",
+        "text": "A apărut o eroare pe server.",
+        "imagine": "500.jpg"
+      }
+    ]
+  }

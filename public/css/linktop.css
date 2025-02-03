@@ -1,0 +1,56 @@
+
+#link-top {
+    position: fixed;
+    bottom: 30px; /* Poziționăm în partea de jos */
+    left: 30px; /* Poziționăm în stânga paginii */
+    background: linear-gradient(to right, #1e2a47, #3e5075, #1e2a47); /* Gradient de la o culoare închisă la una deschisă și inapoi */
+    color: white;
+    width: 50px; /* Dimensiune buton */
+    height: 50px; /* Dimensiune buton */
+    border-radius: 50%; /* Colțuri rotunjite */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #fff; /* Border dashed */
+    opacity: 0.5; /* Semi-transparent */
+    text-decoration: none; /* Eliminăm sublinierea */
+    font-size: 30px; /* Mărimea săgeții */
+    transition: all 0.3s ease; /* Tranziție pentru efectele de hover */
+}
+
+/* Efecte la hover */
+#link-top:hover {
+    opacity: 1; /* Opacitate maximă */
+    transform: rotate(360deg); /* Rotește butonul la hover */
+}
+
+#link-top span {
+    display: inline-block;
+    transition: transform 0.4s ease; /* Tranziție pentru săgeată */
+}
+
+/* Efecte pentru săgeată */
+#link-top:hover span {
+    transform: rotate(-360deg); /* Săgeata rămâne nemișcată */
+}
+
+/* Tooltip-ul care se afișează la hover */
+#link-top::after {
+    content: "Mergi suuus";
+    position: absolute;
+    bottom: 60px; /* Poziționăm tooltip-ul deasupra butonului */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#link-top:hover::after {
+    opacity: 1; /* Arată tooltip-ul la hover */
+}

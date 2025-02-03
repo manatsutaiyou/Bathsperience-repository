@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        :root {
+            --base-font-size: 16px;
+        }
+
+        html {
+            font-size: var(--base-font-size);
+            transition: font-size 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            padding: 10px;
+            grid-template-areas:
+                "area1 area1 area1 area1"
+                "area2 area3 area4 area5"
+                "area6 area6 area7 area8";
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto auto;
+            box-sizing: border-box;
+        }
+
+        .grid-container > div {
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: 1px dashed #000; /* Debug border */
+        }
+
+        .area1 { grid-area: area1; background-color: #f8b400; padding: 20px; }
+        .area2 { grid-area: area2; background-color: #56b4d3; padding: 20px; }
+        .area3 { grid-area: area3; background-color: #9b59b6; padding: 20px; }
+        .area4 { grid-area: area4; background-color: #2ecc71; padding: 20px; }
+        .area5 { grid-area: area5; background-color: #e74c3c; padding: 20px; }
+        .area6 { grid-area: area6; background-color: #3498db; padding: 20px; }
+        .area7 { grid-area: area7; background-color: #e67e22; padding: 20px; }
+        .area8 { grid-area: area8; background-color: #95a5a6; padding: 20px; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            html {
+                font-size: calc(var(--base-font-size) - 2px);
+            }
+
+            .grid-container {
+                grid-template-areas:
+                    "area1 area1 area1 area1"
+                    "area2 area2 area3 area3"
+                    "area4 area4 area5 area5"
+                    "area6 area6 area7 area7"
+                    "area8 area8 area8 area8";
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: calc(var(--base-font-size) - 4px);
+            }
+
+            .grid-container {
+                grid-template-areas:
+                    "area1"
+                    "area2"
+                    "area3"
+                    "area4"
+                    "area5"
+                    "area6"
+                    "area7"
+                    "area8";
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .area1 { font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="area1">Zona 1: Prezentare</div>
+        <div class="area2">Zona 2: Tabel</div>
+        <div class="area3">Zona 3: Calendar</div>
+        <div class="area4">Zona 4: Anunțuri</div>
+        <div class="area5">Zona 5: Lista utilizatori online</div>
+        <div class="area6">Zona 6: Date utilizator și statistici</div>
+        <div class="area7">Zona 7: Date site și server</div>
+        <div class="area8">Zona 8: Alte tipuri de conținut</div>
+    </div>
+</body>
+</html>

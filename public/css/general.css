@@ -1,0 +1,502 @@
+html{
+    --dimensiune-text:17px;
+    font-size: var(--dimensiune-text);
+    transition: all 500ms linear; 
+}
+
+
+:root{
+            --spacing-large: 40px;
+            --spacing-medium: 20px;
+            --spacing-small: 10px;
+
+            /* Variabile pentru grid-gap */
+            --grid-gap-large: 20px;
+            --grid-gap-medium: 15px;
+            --grid-gap-small: 10px;
+
+            /* Variabile pentru padding */
+            --padding: 20px;}
+#schema-cromatica{
+    --background: hsl(200, 100%, 73%);       
+    --bg-secundar: #497280;     
+    --highlight: #1cafd7;       
+    --culoare-margini: #ecff5a;     
+    --culoare-text: #070801;       
+    --culoare-text2: #FFC558;       
+  }
+  
+  
+  body {
+    margin: 0;
+    padding: var(--spacing-large);
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    color: var(--culoare-text);
+    transition: padding 0.3s ease;
+    
+  }
+  
+  
+  .header {
+    background-color: var(--bg-secundar);
+    color: var(--culoare-text2);
+    text-align: center;
+    padding: var(--padding);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .content {
+    text-align: center;
+  }
+  
+  
+  .card {
+    background-color: var(--highlight);
+    border: 2px solid var(--culoare-margini);
+    color: var(--culoare-text);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 50%;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: var(--culoare-text2);
+  }
+  .icon-section {
+    margin-top: 40px;
+  }
+
+ .icon {
+    font-size: 3em;
+    margin: 20px;
+    color: var(--culoare-text);
+  }
+
+
+
+
+  .container-iframe {
+    display: flex;
+    flex-direction: column; /* Arrange content in a vertical layout */
+    align-items: center; /* Center the content horizontally */
+    gap: 16px; /* Add spacing between elements */
+    position: relative; /* Allow absolute positioning of the buttons */
+}
+
+/* Style the tabs container */
+.taburi-iframe {
+    display: flex;
+    justify-content: center; /* Center-align the buttons */
+    gap: 16px; /* Reduced spacing between buttons */
+    margin-top: 12px; /* Adjust spacing between the iframe and buttons */
+    margin-bottom: 12px; /* Adjust bottom margin for space */
+}
+
+/* Style the <a> tags as buttons */
+/* Style the <a> tags as buttons */
+.taburi-iframe a {
+  display: inline-block;
+  padding: 6px 12px; /* Reduced padding for smaller buttons */
+  background-color: #b7f3ee; /* Button background color */
+  color: #00bcd4; /* Text color */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4); /* Subtle shading for text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 0 0 20px 20px; /* Rounded bottom corners only */
+  border: 2px solid #00bcd4; /* Button border */
+  font-weight: bold; /* Make text bold */
+  text-align: center; /* Center-align text */
+  width: 100px; /* Reduced fixed width */
+  height: 30px; /* Reduced fixed height */
+  line-height: 28px; /* Vertically align text within the button */
+  position: relative; /* Positioning for outlines and effects */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for button */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Inner outline effect (always visible) */
+.taburi-iframe a::before {
+  content: '';
+  position: absolute;
+  top: 4px; /* Inner padding for the outline */
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid rgba(0, 188, 212, 0.8); /* Inner outline with shading */
+  border-radius: 0 0 6px 6px; /* Matching bottom corners */
+  z-index: -1; /* Place behind the button */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(0, 188, 212, 0.1)); /* Subtle gradient */
+  pointer-events: none; /* Prevent interaction with pseudo-elements */
+}
+
+/* Outer outline effect (always visible) */
+.taburi-iframe a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(0, 151, 167, 0.6); /* Outer outline */
+  border-radius: 0 0 8px 8px; /* Matching bottom corners */
+  z-index: -2; /* Place behind the inner outline */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 151, 167, 0.1)); /* Subtle gradient */
+  pointer-events: none; /* Prevent interaction with pseudo-elements */
+}
+
+/* Hover effect */
+.taburi-iframe a:hover {
+  background-color: #00bcd4; /* Cyan background on hover */
+  color: #ffffff; /* White text on hover */
+  text-shadow: none; /* Remove text shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 10px #00bcd4; /* Glowing hover effect */
+  transform: translateY(-1px); /* Slight upward movement */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  .footer {
+    background-color: var(--bg-secundar);
+    color: var(--culoare-text2);
+    text-align: center;
+    padding: var(--padding);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--grid-gap-large);
+    background-color: var(--color-grid);
+    padding: var(--padding);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content div {
+    background-color: white;
+    padding: var(--padding);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    min-width: 150px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-width: 200px;
+}
+
+/* Stilizare linkuri */
+.link {
+  color: var(--highlight);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Linkuri vizitate */
+.link:visited {
+  color: var(--culoare-text2);
+}
+
+/* LINKURI */
+.link[href^="http"]::before {
+  /* content: "⮳"; */
+  font-size: 150%;
+  margin-right: 5px;
+  display: inline-block;
+  color: var(--highlight);
+  transition: color 0.3s ease-in-out;
+}
+
+/* Schimbare culoare simbol la hover */
+.link[href^="http"]:hover::before {
+  color: var(--culoare-margini);
+}
+
+/* Stilizare efect pata de culoare */
+main .link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Crearea efectului de pată de culoare */
+main .link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 0%;
+  background: radial-gradient(circle, hsla(224, 100%, 56%, 0.4) 0%, hsla(224, 100%, 56%, 0.4) 40%, transparent 80%, transparent 100%);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  border-radius: 50%;
+}
+
+/* Când hover pe link, pata de culoare se extinde */
+main .link:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+/* Border la click (active) */
+.link:active {
+  border: 2px solid var(--culoare-margini);
+  padding: 2px;
+  border-radius: 5px;
+}
+
+
+
+/* VIDEOCLIP - VIDEO*/
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+video {
+  width: 90%; /* Adaptabil pe ecrane mici */
+  max-width: 800px; /* Evită să fie prea mare pe ecrane mari */
+  min-width: 300px; /* Evită să fie prea mic */
+  border: 2px solid var(--culoare-margini);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stilizare subtitrări */
+::cue {
+  background: white; /* Fundal alb */
+  color: var(--culoare-text); /* Culoare închisă conform schemei cromatice */
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  top: 10%; /* Așezare în partea de sus */
+}
+
+
+
+.duotone-container {
+  width: 300px;
+  height: 375px;
+  background: url('/resurse/evil-duck.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pseudoelementele pentru efectul duotone */
+.duotone-container::before,
+.duotone-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply; /* Creează efectul duotone */
+  transition: transform 0.9s ease-in-out; /* Animația */
+}
+
+/* Prima culoare (C1) - Vine din stânga */
+.duotone-container::before {
+  background: rgba(255, 0, 150, 0.6); /* Roz */
+  left: -100%;
+}
+
+/* A doua culoare (C2) - Vine din dreapta */
+.duotone-container::after {
+  background: rgba(0, 200, 255, 0.6); /* Cyan */
+  right: -100%;
+}
+
+/* Hover effect */
+.duotone-container:hover::before {
+  transform: translateX(100%);
+}
+
+.duotone-container:hover::after {
+  transform: translateX(-100%);
+}
+
+
+
+.fancy-hr {
+  border: none; /* Elimină borderul implicit */
+  height: 4px; /* Grosimea liniei */
+  background-color: #d4b400; /* Culoarea liniei (din schema ta cromatică) */
+  width: 80%; /* Lățimea liniei */
+  position: relative; /* Necesită pentru pseudo-elemente */
+  margin: 20px auto; /* Centrare */
+}
+
+/* Adăugăm triunghiurile la capete */
+.fancy-hr::before,
+.fancy-hr::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 10px 12px;
+  display: block;
+}
+
+/* Triunghiul din stânga */
+.fancy-hr::before {
+  left: -15px;
+  border-color: transparent #d49800 transparent transparent; /* Culoarea triunghiului din stânga */
+}
+
+/* Triunghiul din dreapta */
+.fancy-hr::after {
+  right: -15px;
+  border-color: transparent transparent transparent #d47500; /* Culoarea triunghiului din dreapta */
+}
+
+
+
+
+/* General Grid Layout */
+/* General Grid Layout */
+main {
+  display: grid;
+  gap: 16px;
+  grid-template-areas: 
+      "area4 area4 area4 area4"
+      "area2 area2 area8 area8"
+      "area3 area5 area8 area8"
+      "area1 area5 area8 area8"
+      "area1 area7 area7 area6";
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Four equal columns */
+}
+
+/* Large Screens (Desktop) */
+@media (min-width: 1024px) {
+  main {
+      grid-template-areas: 
+          "area4 area4 area4 area4"
+          "area2 area2 area8 area8"
+          "area3 area5 area8 area8"
+          "area1 area5 area8 area8"
+          "area1 area7 area7 area6";
+      grid-template-columns: 1fr 1fr 1fr 1fr; /* Maintain four equal columns */
+  }
+}
+
+/* Medium Screens (Tablets: 768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+      grid-template-areas: 
+          "area4 area4 area4 area4"
+          "area2 area2 area8 area8"
+          "area3 area3 area5 area5"
+          "area1 area1 area7 area6"
+          "area8 area8 area8 area8";
+      grid-template-columns: 1fr 1fr 1fr 1fr; /* Still four columns but adjusted layout */
+  }
+}
+
+/* Small Screens (Phones: below 768px) */
+@media (max-width: 767px) {
+  main {
+      grid-template-areas: 
+          "area4"
+          "area2"
+          "area3"
+          "area1"
+          "area5"
+          "area8"
+          "area7"
+          "area6";
+      grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+}
+
+
+
+/* Styling Each Area */
+.area1 { grid-area: area1; background-color: #f0f8ff; padding: 16px; }
+.area2 { grid-area: area2; background-color: #e6f7ff; padding: 16px; }
+.area3 { grid-area: area3; background-color: #ccf2ff; padding: 16px; }
+.area4 { grid-area: area4; background-color: #b3ecff; padding: 16px; }
+.area5 { grid-area: area5; background-color: #99e6ff; padding: 16px; }
+.area6 { grid-area: area6; background-color: #80dfff; padding: 16px; }
+.area8 { grid-area: area8; background-color: #4dc3ff; padding: 16px; }
+
+/* Responsive Typography */
+html {
+  font-size: 16px; /* Default font size for large screens */
+  transition: font-size 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+  html {
+      font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+      font-size: 14px;
+  }
+}
+
+/* Disable Animations on Small Screens */
+@media (max-width: 767px) {
+  * {
+      animation: none !important;
+      transition: none !important;
+  }
+}
+
+/* Media queries pentru spațiere și grid-gap */
+@media (max-width: 1024px) {
+    body {
+        padding: var(--spacing-medium);
+    }
+
+    .content {
+        gap: var(--grid-gap-medium);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-small);
+    }
+
+    .content {
+        gap: var(--grid-gap-small);
+    }
+}
+  
+
