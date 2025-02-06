@@ -1,61 +1,77 @@
-  .tabel-container {
-            width: auto;
-            overflow-x: auto;
-            margin-bottom: 20px;
-            column-span: 2;
-        }
+.table-container {
+    max-width: 100%;
+    overflow-x: auto; /* Permite derularea pe orizontală */
+    margin: 20px 0;
+}
 
-        table {
-            width: auto;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+/* Stilizare tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
 
-        th, td {
-            border: 2px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
 
+/* Header cu fundal gri */
+thead {
+    background-color: #f2f2f2;
+}
 
-        th {
-            background-color: #0a4ea2;
-            color: white;
-        }
+/* Alternarea culorilor pe rânduri */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
+tbody tr:nth-child(odd) {
+    background-color: #e6f7ff;
+}
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+/* Efect hover cu tranziție */
+tbody tr:hover {
+    background-color: #d1ecf1;
+    transition: background 0.3s ease-in-out;
+}
 
-        tr:nth-child(odd) {
-            background-color: #e6f7ff;
-        }
+/* Caption sub tabel */
+caption {
+    caption-side: bottom;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
 
-        tr:hover {
-            background-color: #ddd;
-            transition: background-color 0.3s ease;
-        }
+/* Responsive pe ecrane mici */
+@media (max-width: 600px) {
+    .table-container {
+        overflow-x: auto;
+    }
 
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-        td, th {
-            padding: 15px;
-        }
+    td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        padding-left: 50%; /* Ajustează pentru a crea efect de etichetă */
+    }
 
- 
-        caption {
-            font-weight: bold;
-            text-align: center;
-            margin-top: 10px;
-        }
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 50%;
+    }
 
-
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-                table-layout: fixed;
-            }
-            .tabel-container {
-                overflow-x: scroll;
-            }
-        }
+    /* Ascunde tfoot pe ecrane mici */
+    tfoot {
+        display: none;
+    }
+}

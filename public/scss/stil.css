@@ -24,7 +24,7 @@ nav {
   top: 50%; /* Centers vertically */
   left: 10px; /* Adjust position */
   transform: translateY(-50%); /* Keeps it centered */
-  z-index: 100;
+  z-index: 9000;
 }
 
 #hamburger img {
@@ -36,10 +36,11 @@ nav {
 ul.meniu {
   display: none;
   position: absolute;
+  z-index: 500;
   top: 0;
   left: 0;
   width: 250px;
-  height: 100vh;
+  height: 450px;
   background-color: var(--culoare-deschisa_meniu);
   flex-direction: column;
   padding: 20px;
@@ -58,6 +59,7 @@ ul.meniu {
 ul.meniu li {
   border-bottom: 1px solid var(--culoare-inchisa_meniu);
   padding: 10px;
+  color: black !important;
   text-align: left;
   font-weight: bold;
   position: relative;

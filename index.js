@@ -2,18 +2,23 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
-const app = express();
+const app = express(); // Move this up before using routes
+const produseRoutes = require("./routes/produseRoutes"); // ✅ Correct path
+
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// Servire fișiere statice
+// Serve static files
 app.use(express.static(path.join(__dirname, "public")));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
-// Variabila globală pentru erori
+
+
+// Global error object
 global.obGlobal = { obErori: null };
 
-// Inițializare erori din JSON
+// Initialize errors from JSON
 function initErori() {
     const caleErori = path.join(__dirname, "public/json/erori.json");
 
@@ -36,7 +41,15 @@ function initErori() {
 }
 initErori();
 
-// Funcție pentru afișarea erorilor
+app.use((req, res, next) => {
+    if (!obGlobal.obErori) {
+        console.log("Eroare de inițializare: erori.json");
+        return res.status(500).send("Eroare de inițializare.");
+    }
+    next();
+});
+
+// Function to display errors
 function afiseazaEroare(identificator, res, titlu = null, text = null, imagine = null) {
     if (!obGlobal.obErori) {
         return res.status(500).send("Eroare de inițializare.");
@@ -51,18 +64,22 @@ function afiseazaEroare(identificator, res, titlu = null, text = null, imagine =
     });
 }
 
-// Ruta pentru pagina principală (Acasă)
+// Route for the home page
 app.get(["/", "/index", "/home"], (req, res) => {
+    console.log("Home route hit");
     let ip_utilizator = req.ip;
     res.render("pagini/index", { ip_utilizator });
 });
 
-// Ruta pentru pagina "Despre"
+// Route for the "About" page
 app.get("/despre", (req, res) => {
     res.render("pagini/despre");
 });
 
-// Blocare acces la /resurse/ fără fișier specificat
+// Use routes for products
+app.use("/produse", produseRoutes); // Corrected
+app.use("/:id", produseRoutes);
+// Block access to /resurse/ without specific file
 app.use("/resurse", (req, res, next) => {
     if (req.path === "/") {
         afiseazaEroare(403, res);
@@ -71,7 +88,7 @@ app.use("/resurse", (req, res, next) => {
     }
 });
 
-// Ruta generală pentru pagini inexistent
+// General route for non-existent pages
 app.get("/*", (req, res) => {
     if (!obGlobal.obErori) {
         console.error("Erorile nu sunt încărcate!");
@@ -92,7 +109,11 @@ app.get("/*", (req, res) => {
     });
 });
 
-// Pornirea serverului
+// Start server
 app.listen(8080, () => {
     console.log("🚀 Server pornit pe http://localhost:8080");
 });
+
+// Initialize compiler
+require("./compiler");
+console.log("Serverul a pornit și monitorizează modificările SCSS...");

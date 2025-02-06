@@ -19,3 +19,4 @@ menuItems.forEach(item => {
     submenu.style.transform = 'scaleY(0)';
   });
 });
+

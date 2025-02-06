@@ -3,12 +3,15 @@
     <head>
         <title>Bathsperience</title>
         <%- include('../fragmente/head.ejs') %>
+        <link rel="stylesheet" href="/css/custom.css">
         <link rel="stylesheet" href="/css/tabel.css" />
 <link rel="stylesheet" href="/css/linktop.css" />
 <link rel="stylesheet" href="/scss/stil.css">
 <link rel="stylesheet" href="/css/banner.css">
 <link rel="stylesheet" href="/css/general.css" type="text/css" />
 <link rel="stylesheet" href="/css/style.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 <script src="/js/script.js"></script>
 
     </head>
@@ -56,9 +59,18 @@
                 </video>
             </div>
             <hr class="fancy-hr">
+            <div class="scrolling-text">
+            <p>Ratele fac baie constant. Ratele venereaza baia. hai in cultul ratelor. Hai la noi hai la noi! Ratele fac baie constant. Ratele venereaza baia. hai in cultul ratelor. Hai la noi hai la noi! Ratele fac baie constant. Ratele venereaza baia. hai in cultul ratelor. Hai la noi hai la noi! Ratele fac baie constant. Ratele venereaza baia. hai in cultul ratelor. Hai la noi hai la noi! Ratele fac baie constant. Ratele venereaza baia. hai in cultul ratelor. Hai la noi hai la noi!</p>
+            
+            </div>
+            
+           
         </div>
         <div class="area2">
+            <div class="table-container">
+                <h2>Evenimente Importante</h2>
                 <table>
+                    <caption>Lista celor mai importante evenimente din acest an</caption>
                     <thead>
                         <tr>
                             <th>Eveniment</th>
@@ -69,41 +81,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Conferință despre Baie</td>
-                            <td>15 februarie 2025</td>
-                            <td>Hotel Central</td>
-                            <td>150</td>
+                            <td>Conferință despre Mac Mac</td>
+                            <td>10 martie 2025</td>
+                            <td>Hotel Business</td>
+                            <td>120</td>
                         </tr>
                         <tr>
-                            <td>Workshop cu angajații</td>
-                            <td>20 martie 2025</td>
-                            <td>Birouri</td>
-                            <td>20</td>
+                            <td>Workshop cu angajatii</td>
+                            <td>5 aprilie 2025</td>
+                            <td>Sediul central</td>
+                            <td>50</td>
                         </tr>
                         <tr>
-                            <td>Expoziție produse noi</td>
-                            <td>30 aprilie 2025</td>
-                            <td>Grand Arena</td>
-                            <td>200</td>
+                            <td>Expoziție Produse Noi</td>
+                            <td colspan="2">15 mai 2025 - Online & Offline</td>
+                            <td>Nelimitat</td>
                         </tr>
                         <tr>
-                            <td rowspan="2">Lansare noi produse</td>
-                            <td>1 iunie 2025</td>
-                            <td>Magazine Parteneri</td>
-                            <td>300</td>
-                        </tr>
-                        <tr>
-                            <td>2 iunie 2025</td>
-                            <td>Magazine Online</td>
-                            <td>500</td>
+                            <td>Eveniment Surpriză</td>
+                            <td>??</td>
+                            <td>Secret</td>
+                            <td>???</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="4">Tabel cu evenimente viitoare</td>
+                            <td colspan="4">Pentru detalii, contactați echipa de organizare. </td>
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+            
             </div>
         
         </div>
@@ -131,10 +139,10 @@
                     <p>Bathsperience va aduce o experienta unica in propria baie. Scaldati-va si  dumneavoastra alaturi de <b>ratusca B-Duck</b>, mascota noastra, cu noile oferte din colectia Bathsperience. Strange toata gasca lui B-Duck chiar acum! Asa cum prietenul nostru B-Duck ar spune <q> La baie se numara bobocii!</q> Toate ratustele din <em>seria 1 B-Duck</em> disponibile pe site! Te incumeti sa-l gasesti pe B-king? Incearca-ti norocul, achizitionand acum Ratusca surpriza. <strong>Atentie! Stocurile sunt limitate!</strong></p>
                     <p>Lasati-va patrunsi de vaporii calzi incarcati cu proprietațile sarurilor exotice, sau pur si simplu bucurati-va de o baie plina de tone de clabuci si arome placute dizolvand in apa produsele Bathsperience. Iata ce oferim:</p>
                     <ol>
-                        <li><a class="link" href="#subcapitol-4"> Ratuste de jucarie</a></li>
+                        <li><a class="link" href="/produse/categorie/toate"> Ratuste de jucarie</a></li>
                         <li><a class="link" href="#subcapitol-5"> Figurine plutitoare</a></li>
                         <li><a class="link" href="#subcapitol-6"> Bath bombs</a></li>
-                        <li><a class="link" href="#subcapitol-7"> Saruri minerale pentru baie</a></li>
+                        <li><a class="link" href="#saruri"> Saruri minerale pentru baie</a></li>
                       </ol>
 
                     <h3>Videoclipuri demonstrative</h3>
@@ -162,6 +170,7 @@
                 </section>
                 <section>
                     <h3>Oferte</h3>
+                    <p> 1 + 1 gratis, doar vinerea!</p>
                 </section>
             </section>
         </div>
@@ -175,23 +184,40 @@
             </section>
         </div>
         <div class="area7">Anunturi
-            <p> Why do we use it?
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            <section id="saruri">
+            <div class="video-background-container">
+                <video autoplay loop muted class="video-background">
+                    <source src="/video/background-video-rata.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="content">
+                    <h2>Cea mai premium sare de baie</h2>
+                     <p>Transformă fiecare băiță într-un ritual de răsfăț și relaxare. Sarea noastră de baie premium, îmbogățită cu minerale esențiale, va învălui pielea într-o senzație de catifelare, în timp ce parfumurile delicate te vor purta într-o călătorie senzorială de neuitat. 🛁💖</p>
+                </div>
+            </div>
+          </section>
                 
         </div>
        
-        <div class="area10">Altceva
-            <p>IP-ul tău: <%= ip_utilizator %></p>
+        <div class="area10">In editie limitata: rata malefica!
+            <br>
             <div class="duotone-container"></div>
         </div>
         <div class="area9">Altceva 2
            
         </div>
-        <div class="area1">utilizatori online
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div class="area1"> <b>Text de informare deosebit de important</b>
+            <section class="text-column">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-            Why do we use it?
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </p>
+            </section>
+            <section id="subcapitolul-10"></section>
+            <p>IP-ul tău: <%= ip_utilizator %></p>
+            <div class="reflect-container">
+                <span class="reflect-text">Ratusca</span>
+                <span class="reflect-mirror">Ratusca</span>
+              </div>
             
         </div>
         <a href="#" id="link-top">

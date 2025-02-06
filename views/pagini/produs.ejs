@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/public/resurse/ico/favicon-48x48.png" sizes="48x48">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= produs.nume %> - Detalii produs</title>
+    <link rel="stylesheet" href="/css/linktop.css" />
+    <link rel="stylesheet" href="/scss/stil.css">
+    <link rel="stylesheet" href="/css/banner.css">
+    <link rel="stylesheet" href="/css/general.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</head>
+<body id="schema-cromatica">
+    <%- include('../fragmente/header.ejs') %>
+
+    <main>
+        <section class="produs-detalii">
+            <h2><%= produs.nume %></h2>
+            <img src="<%= produs.imagine %>" alt="<%= produs.nume %>">
+            <p><strong>Descriere:</strong> <%= produs.descriere %></p>
+           
+                    <p><strong>Preț:</strong> $<%= produs.pret %></p>
+                    <p><strong>Dimensiune:</strong> <%= produs.dimensiune %> cm</p>
+                    <p><strong>Data apariției:</strong> 
+                        <time datetime="<%= produs.data_aparitie %>">
+                            <%= new Date(produs.data_aparitie).toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' }) %>
+                        </time>
+                    </p>
+                    <p><strong>Culoare:</strong> <%= produs.culoare %></p>
+                    <p><strong>Caracteristici extra:</strong> <%= produs.caracteristici_extra %></p>
+                    <p><strong>Rezistent la apă:</strong> <%= produs.rezistent_la_apa ? 'Da' : 'Nu' %></p>
+            <button onclick="window.history.back()">Înapoi la lista de produse</button>
+        </section>
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

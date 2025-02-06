@@ -1,0 +1,75 @@
+// _custom.scss - Custom Bootstrap Variables & Styles
+
+// 1️⃣ Variabile personalizate pentru butoane și inputuri
+$btn-border-radius: 10px;
+$btn-border-width: 2px;
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+
+// 2️⃣ Customizare pentru range slider
+$input-range-thumb-size: 1.5rem;
+$input-range-track-height: 0.5rem;
+$input-range-thumb-bg: #007bff;
+$input-range-thumb-border-color: darken($input-range-thumb-bg, 15%);
+$input-range-track-bg: lighten($input-range-thumb-bg, 30%);
+
+// 3️⃣ Bootstrap Theme Overrides
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$theme-colors: (
+  "primary": #007bff,
+  "secondary": #6c757d,
+  "danger": #dc3545
+);
+
+@import "bootstrap/scss/bootstrap";
+
+// 4️⃣ Stilizare butoane și inputuri
+.btn {
+  border-radius: $btn-border-radius;
+  border-width: $btn-border-width;
+}
+
+.input-group input {
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+
+// 5️⃣ Stilizare Toggle Buttons
+.btn-outline-primary {
+  border-color: $primary;
+  color: $primary;
+  &:hover, &.active {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+// 6️⃣ Range Input Custom Styling
+input[type='range'] {
+  &::-webkit-slider-runnable-track {
+    height: $input-range-track-height;
+    background: $input-range-track-bg;
+  }
+  &::-webkit-slider-thumb {
+    width: $input-range-thumb-size;
+    height: $input-range-thumb-size;
+    background: $input-range-thumb-bg;
+    border: 2px solid $input-range-thumb-border-color;
+  }
+}
+
+@media (max-width: 768px) {
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+    }
+    .btn span {
+      display: none; // Ascunde textul
+    }
+  }

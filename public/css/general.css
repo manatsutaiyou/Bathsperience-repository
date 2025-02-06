@@ -14,18 +14,49 @@ html{
             --grid-gap-large: 20px;
             --grid-gap-medium: 15px;
             --grid-gap-small: 10px;
-
+            --background: hsl(200, 100%, 73%);
+            --bg-secundar: #497280;
+            --highlight: #1cafd7;
+            --culoare-margini: #ecff5a;
+            --culoare-text: #070801;
+            --culoare-text2: #FFC558;
             /* Variabile pentru padding */
             --padding: 20px;}
-#schema-cromatica{
-    --background: hsl(200, 100%, 73%);       
-    --bg-secundar: #497280;     
-    --highlight: #1cafd7;       
-    --culoare-margini: #ecff5a;     
-    --culoare-text: #070801;       
-    --culoare-text2: #FFC558;       
-  }
-  
+
+
+/* Stiluri pentru tema dark */
+.dark-theme {
+  --background: #1e1e1e;
+  --bg-secundar: #2a2a2a;
+  --highlight: #ff6f61;
+  --culoare-margini: #ffcc00;
+  --culoare-text: #ffffff;
+  --culoare-text2: #d4af37;
+}
+
+
+/* Stil pentru buton */
+#theme-toggle {
+  background: none;
+  border: 2px solid var(--culoare-margini);
+  color: var(--culoare-text2);
+  font-size: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--highlight);
+  color: var(--culoare-text);
+}
+
+
+
+
+
   
   body {
     margin: 0;
@@ -37,6 +68,10 @@ html{
     
   }
   
+  h1, h2, h3, h4, h5, h6, p, span, a, li, td, th {
+    color: var(--culoare-text);
+}
+
   
   .header {
     background-color: var(--bg-secundar);
@@ -72,12 +107,14 @@ html{
     color: var(--culoare-text2);
   }
   .icon-section {
-    margin-top: 40px;
+    max-width: 200px;
+    max-height: 90px;
+    
   }
 
  .icon {
-    font-size: 3em;
-    margin: 20px;
+    font-size: 1,5em;
+    margin: 10px;
     color: var(--culoare-text);
   }
 
@@ -115,7 +152,7 @@ html{
   font-weight: bold; /* Make text bold */
   text-align: center; /* Center-align text */
   width: 100px; /* Reduced fixed width */
-  height: 30px; /* Reduced fixed height */
+  height: 40px; /* Reduced fixed height */
   line-height: 28px; /* Vertically align text within the button */
   position: relative; /* Positioning for outlines and effects */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for button */
@@ -194,7 +231,7 @@ html{
 }
 
 .content div {
-    background-color: white;
+    background-color: var(--background);
     padding: var(--padding);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -304,10 +341,15 @@ video {
 }
 
 
+.nav-classic{
+  position: relative;
+}
+
+
 
 .duotone-container {
   width: 300px;
-  height: 375px;
+  height: 398px;
   background: url('/resurse/evil-duck.png') no-repeat center center;
   background-size: cover;
   position: relative;
@@ -350,37 +392,210 @@ video {
 
 
 .fancy-hr {
-  border: none; /* Elimină borderul implicit */
+  border: none;
   height: 4px; /* Grosimea liniei */
-  background-color: #d4b400; /* Culoarea liniei (din schema ta cromatică) */
-  width: 80%; /* Lățimea liniei */
-  position: relative; /* Necesită pentru pseudo-elemente */
+  background-color: #d4b400; /* Culoarea liniei */
+  width: 80%;
+  position: relative;
   margin: 20px auto; /* Centrare */
 }
 
-/* Adăugăm triunghiurile la capete */
+/* Triunghiurile */
 .fancy-hr::before,
 .fancy-hr::after {
   content: "";
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  width: 0;
+  height: 0;
   border-style: solid;
-  border-width: 10px 12px;
-  display: block;
+  transform: translateY(-50%);
 }
 
 /* Triunghiul din stânga */
 .fancy-hr::before {
-  left: -15px;
-  border-color: transparent #d49800 transparent transparent; /* Culoarea triunghiului din stânga */
+  left: 0;
+  border-width: 30px 25px 20px 0;
+  border-color: transparent #d49800 transparent transparent;
 }
 
 /* Triunghiul din dreapta */
 .fancy-hr::after {
-  right: -15px;
-  border-color: transparent transparent transparent #d47500; /* Culoarea triunghiului din dreapta */
+  right: 0;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #d47500;
 }
+
+
+
+.reflect-container {
+  position: relative;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  user-select: none;
+  top:20px;
+  left: 80px;
+  
+}
+
+.reflect-text {
+  position: absolute;
+  color: rgb(37, 128, 37);
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  transform: skewY(140deg);
+}
+
+.reflect-mirror {
+  position: absolute;
+  left: 110px; 
+  top: 0px; 
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  transform: scaleX(-1) skewY(-40deg);
+}
+
+/* Efect hover */
+.reflect-container:hover .reflect-text,
+.reflect-container:hover .reflect-mirror {
+  color: red;
+  transition: color 0.7s ease-in-out;
+}
+
+
+
+/* 
+text pe coloane */
+.text-column {
+  column-count: 2; /* Numărul de coloane */
+  column-gap: 20px; /* Spațiu între coloane */
+  column-rule: 1px solid #000; /* Linia despărțitoare între coloane */
+  
+}
+
+/* Media query pentru ecrane mici și medii */
+@media (max-width: 768px) {
+  .text-column {
+    column-count: 1; /* Pe ecrane mici și medii, să se afișeze o singură coloană */
+  }
+}
+
+
+/* text acre se plimba */
+
+
+/* Containerul pentru textul care se mișcă */
+.scrolling-text {
+  display: flex;
+  width: 100%;
+  overflow: hidden; /* Ascunde textul care depășește containerul */
+  position: relative;
+  white-space: nowrap; /* Asigură că textul nu se împartă pe mai multe linii */
+  height: 40px; /* Sau orice înălțime vrei pentru container */
+  
+}
+
+/* Stilurile textului care se mișcă */
+.scrolling-text p {
+  font-size: 24px; /* Ajustează mărimea textului după cum vrei */
+  margin: 0;
+  display: inline-block;
+  animation: scroll-horizontal 20s linear infinite, color-change 10s linear infinite; /* Animația textului */
+}
+
+/* Definirea animației pentru mișcarea orizontală */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0); /* Textul începe direct vizibil pe ecran */
+  }
+  100% {
+    transform: translateX(-100%); /* Textul iese complet din ecran pe stânga */
+  }
+}
+@keyframes color-change {
+  0% {
+    color: #ff0000; /* Culoarea inițială (roșu) */
+  }
+  25% {
+    color: #ff00ff; /* Culoare la 25% din animație (verde) */
+  }
+  50% {
+    color: #ff0051; /* Culoare la 50% din animație (albastru) */
+  }
+  75% {
+    color: #ff00f7; /* Culoare la 75% din animație (mov) */
+  }
+  100% {
+    color: #ff0000; /* Culoarea finală (roșu) */
+  }}
+
+
+
+  .video-background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Înălțimea completă a ecranului */
+    overflow: hidden; /* Ascunde orice parte din video care iese din div */
+}
+
+/* Videoclipul de fundal */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asigură că video-ul se întinde pe întreaga dimensiune a div-ului */
+    z-index: -1; /* Pune video-ul în spatele conținutului */
+}
+
+/* Conținutul care apare peste videoclip */
+.content {
+    position: relative;
+    z-index: 1; /* Asigură că textul este deasupra video-ului */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Stil pentru titlu */
+.content h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Stil pentru paragrafe */
+.content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+.butoane-filtrare{
+  position:relative;
+  top: 10px;
+  bottom: 10px;
+}
+
+.lista-produse{
+  top:10px;
+  position: relative;
+}
+
+
+
 
 
 
@@ -451,6 +666,27 @@ main {
 .area5 { grid-area: area5; background-color: #99e6ff; padding: 16px; }
 .area6 { grid-area: area6; background-color: #80dfff; padding: 16px; }
 .area8 { grid-area: area8; background-color: #4dc3ff; padding: 16px; }
+
+.dark-theme .area1 { background-color: #252525; }
+.dark-theme .area2 { background-color: #333333; }
+.dark-theme .area3 { background-color: #444444; }
+.dark-theme .area4 { background-color: #555555; }
+.dark-theme .area5 { background-color: var(--culoare-text2); }
+.dark-theme .area6 { background-color: #666666; }
+.dark-theme .area8 { background-color: #777777; }
+
+.area1{
+  max-height: 738px;
+}
+.area6{
+  max-height: 422px;
+}
+.area10{
+  max-height: 422px;
+}
+.area7{
+  max-height: 422px;
+}
 
 /* Responsive Typography */
 html {

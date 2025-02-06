@@ -1,0 +1,75 @@
+// Import funcțiile Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+// Schema cromatică personalizată
+$primary: hsl(200, 100%, 73%); // Fundal principal
+$secondary: #497280; // Fundal secundar
+$success: #1cafd7; // Highlight
+$warning: #ecff5a; // Culoare margini
+$danger: #FFC558; // Culoare text2
+$dark: #070801; // Culoare text principal
+
+// Setare temă globală Bootstrap
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "warning": $warning,
+  "danger": $danger,
+  "dark": $dark
+);
+
+// Dimensiunea fontului și animații globale
+html {
+  --dimensiune-text: 17px;
+  font-size: var(--dimensiune-text);
+  transition: all 500ms linear;
+}
+
+// Alte variabile personalizate
+:root {
+  --spacing-large: 40px;
+  --spacing-medium: 20px;
+  --spacing-small: 10px;
+
+  --grid-gap-large: 20px;
+  --grid-gap-medium: 15px;
+  --grid-gap-small: 10px;
+
+  --padding: 20px;
+}
+
+// Stilizare fundal și text pentru corpul paginii
+body {
+  background-color: $primary;
+  color: $dark;
+}
+
+// Suprascriere Bootstrap
+.btn-primary {
+  background-color: $success;
+  border: 2px solid $warning;
+  color: $dark;
+  
+  &:hover {
+    background-color: darken($success, 10%);
+    border-color: darken($warning, 10%);
+  }
+}
+
+// Carduri stilizate
+.card {
+  background-color: $secondary;
+  border-radius: 12px;
+  color: $dark;
+}
+
+// Titluri personalizate
+h1, h2, h3, h4, h5 {
+  color: $dark;
+}
+
+// Import restul Bootstrap
+

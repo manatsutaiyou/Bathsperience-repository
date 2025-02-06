@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/linktop.css" />
+    <link rel="icon" type="image/png" href="/public/resurse/ico/favicon-48x48.png" sizes="48x48">
+<link rel="stylesheet" href="/scss/stil.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/customizare-butoane-bootstrap.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/general.css" type="text/css" />
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <title>Lista de rate</title>
+</head>
+<body id="schema-cromatica">
+    <%- include('../fragmente/header.ejs') %>
+    <h1>Ratustele de vanzare</h1>
+
+    <nav class="nav-classic">
+        <ul>
+            <li><a href="/produse/categorie/toate">Toate</a></li>
+            <% for(let cat of categories) { %>
+                <li><a href="/produse/categorie/<%= cat %>"><%= cat %></a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+    <!-- Filtrare -->
+    <section class="filtrare">
+        <label for="nume">Nume:</label>
+        <input type="text" id="nume" >
+        
+        <label for="pret">Preț:</label>
+        <input type="range" id="pret" min="1" max="40" step="2" oninput="updatePret(this.value)">
+        <span id="pret-valoare">35</span>
+    
+        <label for="categorie">Categorie:</label>
+        <select id="categorie" >
+            <option value="">Oricare</option>
+            <% for(let cat of categories) { %>
+                <option value="<%= cat %>"><%= cat %></option>
+            <% } %>
+        </select>
+    
+        <label for="stil">Stil:</label>
+        <select id="stil" >
+            <option value="">Oricare</option>
+            <% for(let stil of stiluri) { %>
+                <option value="<%= stil %>"><%= stil %></option>
+            <% } %>
+        </select>
+    
+        <label for="rezistent">Rezistent la apă:</label>
+        <input type="checkbox" id="rezistent" >
+    </section>
+
+
+    <div class="butoane-filtrare">
+    <button id="filtreaza-btn" class="btn btn-primary">
+        <i class="bi bi-funnel"></i> <span>Filtrează</span>
+      </button>
+      <button id="sort-asc" class="btn btn-secondary">
+        <i class="bi bi-sort-up"></i> <span>Sortează Asc</span>
+      </button>
+      <button id="sort-desc" class="btn btn-secondary">
+        <i class="bi bi-sort-down"></i> <span>Sortează Desc</span>
+      </button>
+      <button id="calculeaza" class="btn btn-success">
+        <i class="bi bi-calculator"></i> <span>Calculează</span>
+      </button>
+      <button id="reseteaza" class="btn btn-danger">
+        <i class="bi bi-arrow-clockwise"></i> <span>Resetează</span>
+      </button>
+      </div>
+
+    <!-- Lista produse -->
+     <div class="lista-produse">
+    <section id="lista-produse">
+        <% for(let item of produse) { %>
+            <article id="ar_ent_<%= item.id %>" 
+                     class="<%= item.categorie.replace(/\s/g, '') %>"
+                     data-categorie="<%= item.categorie %>"
+                     data-stil="<%= item.stil %>"
+                     data-pret="<%= item.pret %>"
+                     data-dimensiune="<%= item.dimensiune %>"
+                     data-data-aparitie="<%= item.data_aparitie %>"
+                     data-culoare="<%= item.culoare %>"
+                     data-caracteristici-extra="<%= item.caracteristici_extra %>"
+                     data-rezistent-la-apa="<%= item.rezistent_la_apa ? 'true' : 'false' %>">
+                
+                <h2><a href="/produse/detalii/<%= item.id %>"><%= item.id %>. <%= item.nume %></a></h2>
+    
+                <div class="col-stanga">
+                    <p><strong>Categorie:</strong> <%= item.categorie %></p>
+                    <img src="<%= item.imagine %>" alt="<%= item.nume %>" width="100">
+                    <p><%= item.descriere %></p>
+                </div>
+    
+                <div class="col-dreapta">
+                    <p><strong>Stil:</strong> <%= item.stil %></p>
+                    <p><strong>Preț:</strong> $<%= item.pret %></p>
+                    
+                    <p><strong>Data apariției:</strong> 
+                        <time datetime="<%= item.data_aparitie %>">
+                            <%= new Date(item.data_aparitie).toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' }) %>
+                        </time>
+                    </p>
+                    
+                    <p><strong>Rezistent la apă:</strong> <%= item.rezistent_la_apa ? 'Da' : 'Nu' %></p>
+                </div>
+            </article>
+        <% } %>
+    </section>
+</div>
+
+    <%- include('../fragmente/footer.ejs') %>
+</body>
+
+<script src="/js/script.js"></script> 
+</html>
